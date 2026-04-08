@@ -2807,9 +2807,6 @@ def main():
                 if which(flasher) is not None:
                     if fw_filename == "rnode_firmware_tbeam.zip":
                         if numeric_version >= 1.55:
-                            RNS.log(f"Python executable: {sys.executable}")
-                            RNS.log(f"Flasher path: {flasher}")
-
                             return [
                                 sys.executable, flasher,
                                 "--chip", "esp32",
@@ -3402,7 +3399,6 @@ def main():
                     try:
                         RNS.log("Flashing RNode firmware to device on "+args.port)
                         from subprocess import call
-                        RNS.log(f"RNode Platform: {args.platform}")
                         rc = get_flasher_call(args.platform, fw_filename)
                         flash_status = call(rc)
                         if flash_status == 0:
